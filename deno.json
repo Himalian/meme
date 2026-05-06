@@ -1,3 +1,0 @@
-{
-  "allowScripts": ["npm:core-js@3.49.0", "npm:esbuild@0.25.12", "npm:vue-demi@0.14.10"]
-}

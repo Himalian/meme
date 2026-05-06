@@ -8,6 +8,7 @@ import { defineConfig } from 'vite';
 import pluginDevTools from 'vite-plugin-vue-devtools';
 
 export default defineConfig({
+	base: './',
 	plugins: [
 		pluginLegacy(),
 		pluginVue(),
