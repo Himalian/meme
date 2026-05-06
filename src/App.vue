@@ -3,42 +3,8 @@ import { useLocalStorage } from '@vueuse/core';
 import mobile from 'is-mobile';
 import mixpanel from 'mixpanel-browser';
 import { provide, ref, toRaw } from 'vue';
-import bg from '@/assets/bg.jpg';
-import PartHighlight from '@/components/part/Highlight.vue';
-import PartNotes from '@/components/part/Notes.vue';
-import PartProspect from '@/components/Prospect.vue';
-import PartRating from '@/components/part/Rating.vue';
-import SubmitterInput from '@/components/SubmitterInput.vue';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Label } from '@/components/ui/label';
-import { Separator } from '@/components/ui/separator';
-import { FormInjectKey, getDefaultForm } from '@/utils/form';
+import Prospect from './components/Prospect.vue';
 
-if (!import.meta.env.DEV) {
-  mixpanel.init(import.meta.env.MAI_MIXPANEL_TOKEN, {
-    track_pageview: true,
-  });
-}
-
-const form = useLocalStorage('form', getDefaultForm());
-provide(FormInjectKey, form);
-
-const saving = ref(false);
-const sendAnonymousData = ref(true);
-
-async function confirm() {
-  saving.value = false;
-  if (sendAnonymousData.value) {
-    mixpanel.track('Save Report', {
-      Form: {
-        ...toRaw(form.value),
-        submitter: undefined, // 匿名处理
-      },
-    });
-  }
-}
 </script>
 
 <template>
@@ -46,7 +12,7 @@ async function confirm() {
     <p class="mr-2">
       点击报告各部分即可填写～(∠・ω&lt; )⌒☆
     </p>
-    <Button @click="saving = true">
+    <Button>
       保存为图片
     </Button>
   </div>
@@ -64,7 +30,7 @@ async function confirm() {
       </div>
     </div>
 
-      <PartProspect />
+      <Prospect />
   </div>
 
 </template>

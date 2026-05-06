@@ -4,7 +4,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./*"]
-    }
+    },
+	"moduleResolution": "node"
   },
   "references": [
     { "path": "./tsconfig.app.json" },
