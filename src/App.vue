@@ -1,9 +1,12 @@
 <script setup lang="ts">
+	
 import { useLocalStorage } from '@vueuse/core';
 import mobile from 'is-mobile';
 import mixpanel from 'mixpanel-browser';
 import { provide, ref, toRaw } from 'vue';
 import Prospect from './components/Prospect.vue';
+
+
 
 </script>
 

@@ -23,16 +23,17 @@
     "npm:lucide-vue-next@0.511": "0.511.0_vue@3.5.34__typescript@5.9.3_typescript@5.9.3",
     "npm:mixpanel-browser@^2.65.0": "2.78.0",
     "npm:postcss-preset-env@^10.2.1": "10.6.1_postcss@8.5.14",
-    "npm:reka-ui@^2.3.1": "2.9.7_vue@3.5.34__typescript@5.9.3_typescript@5.9.3",
+    "npm:reka-ui@^2.9.7": "2.9.7_vue@3.5.34__typescript@5.9.3_typescript@5.9.3",
     "npm:shadcn-vue@^2.2.0": "2.6.2_eslint@9.39.4_typescript@5.9.3_vue@3.5.34__typescript@5.9.3",
     "npm:tailwind-merge@^3.3.0": "3.5.0",
-    "npm:tailwindcss@^4.2.4": "4.2.4",
+    "npm:tailwindcss@^4.1.8": "4.2.4",
     "npm:tw-animate-css@^1.3.3": "1.4.0",
     "npm:typescript@^5.8.2": "5.9.3",
     "npm:unplugin-icons@^22.1.0": "22.5.0_@vue+compiler-sfc@3.5.34",
     "npm:vite-plugin-vue-devtools@^8.0.5": "8.1.1_vite@6.4.2__terser@5.46.2_terser@5.46.2_typescript@5.9.3_vue@3.5.34__typescript@5.9.3",
     "npm:vite@^6.3.5": "6.4.2_terser@5.46.2",
     "npm:vitest@^4.0.18": "4.1.5_vite@6.4.2__terser@5.46.2_terser@5.46.2",
+    "npm:vue-cropper@^1.1.4": "1.1.4",
     "npm:vue-tsc@^2.2.8": "2.2.12_typescript@5.9.3",
     "npm:vue@^3.5.13": "3.5.34_typescript@5.9.3",
     "npm:zod@^3.25.56": "3.25.76"
@@ -6294,6 +6295,9 @@
     "vscode-uri@3.1.0": {
       "integrity": "sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ=="
     },
+    "vue-cropper@1.1.4": {
+      "integrity": "sha512-5m98vBsCEI9rbS4JxELxXidtAui3qNyTHLHg67Qbn7g8cg+E6LcnC+hh3SM/p94x6mFh6KRxT1ttnta+wCYqWA=="
+    },
     "vue-demi@0.14.10_vue@3.5.34__typescript@5.9.3_typescript@5.9.3": {
       "integrity": "sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==",
       "dependencies": [
@@ -6477,16 +6481,17 @@
         "npm:lucide-vue-next@0.511",
         "npm:mixpanel-browser@^2.65.0",
         "npm:postcss-preset-env@^10.2.1",
-        "npm:reka-ui@^2.3.1",
+        "npm:reka-ui@^2.9.7",
         "npm:shadcn-vue@^2.2.0",
         "npm:tailwind-merge@^3.3.0",
-        "npm:tailwindcss@^4.2.4",
+        "npm:tailwindcss@^4.1.8",
         "npm:tw-animate-css@^1.3.3",
         "npm:typescript@^5.8.2",
         "npm:unplugin-icons@^22.1.0",
         "npm:vite-plugin-vue-devtools@^8.0.5",
         "npm:vite@^6.3.5",
         "npm:vitest@^4.0.18",
+        "npm:vue-cropper@^1.1.4",
         "npm:vue-tsc@^2.2.8",
         "npm:vue@^3.5.13",
         "npm:zod@^3.25.56"

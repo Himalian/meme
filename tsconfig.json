@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+	"module": "nodenext",
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./*"]
     },
-	"moduleResolution": "node"
+	"moduleResolution": "nodenext"
   },
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.bun.json" }
   ],
-  "files": []
+  "files": [],
+  
 }

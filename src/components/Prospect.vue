@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue';
+import Avatar from './Avatar.vue';
 
 const STORAGE_KEY = 'characters';
 // 定义四个格子的初始数据
@@ -19,7 +20,7 @@ onMounted(()=>{
 })
 
 watch(characters, (newVal) => {
-	localStorage.setItem(STORAGE_KEY, JSON.stringify(newVal.filter(item => item.name || item.description)))
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(newVal))
 }, { deep: true })
 </script>
 
@@ -31,20 +32,17 @@ watch(characters, (newVal) => {
       class="flex flex-col items-center justify-center"
     >
       <!-- 头像部分 -->
-      <img 
-        :src="item.avatar" 
-        class="w-24 h-24 mb-2 border-black border rounded-full object-cover"
-      >
+      <Avatar :src="item.avatar" @update:src="(val) => item.avatar = val" />
       <!-- 输入部分：双向绑定到数组项 -->
       <input 
         v-model="item.name"
         placeholder=""
-        class="font-bold text-2xl w-full text-center border-none focus:border-b focus:border-black"
+        class="font-bold text-2xl w-full text-center border-none focus:border-b focus:border-black break-all"
       >
 	  <input 
 		v-model="item.description"
 		placeholder=""
-		class="w-full text-center border-none focus:border-b focus:border-black"
+		class="max-w-full text-center border-none focus:border-b focus:border-black break-all"
 	  >
     </div>
   </div>
