@@ -54,7 +54,11 @@ function onCancel() {
 
 <template>
 	<div @click="toggleEditAvatar" class="hover:cursor-pointer">
-		<img :src="props.src || defaultAvatar" alt="Default Avatar" />
+		<img 
+		:src="props.src || defaultAvatar" 
+		alt="Default Avatar"
+		class="border border-black rounded-full"
+		 />
 	</div>
 	<Teleport to="body">
 		<div v-if="editAvatar" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
@@ -117,6 +121,6 @@ function onCancel() {
 :deep(.cropper-view-box img),
 :deep(.cropper-canvas img) {
   max-width: none !important;
-  height: auto !important; /* 有时也需要重置高度 */
+  height: auto !important;
 }
 </style>
