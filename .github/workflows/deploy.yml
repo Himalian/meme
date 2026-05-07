@@ -1,29 +1,49 @@
-name: Deploy to Netlify
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [main]
-  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2.2.0
 
-      - name: Install & Build
-        run: |
-          bun install
-          bun run build
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
 
-      - name: Install Netlify CLI
-        run: bun install -g netlify-cli
+      - name: Build
+        run: deno install && deno task build
 
-      - name: Deploy Preview
-        if: github.event_name == 'pull_request'
-        run: netlify deploy --auth ${{ secrets.NETLIFY_API_KEY }} --dir=dist
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-      - name: Deploy Production
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: netlify deploy --auth ${{ secrets.NETLIFY_API_KEY }} --prod --dir=dist
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
